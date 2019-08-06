@@ -19,12 +19,18 @@ This is todo adding screen
 
 
 
+<br>
+<br>
 
 ![pi2](https://user-images.githubusercontent.com/25553339/62533313-fe588d00-b863-11e9-87de-44e620c39e46.JPG)
+<br>
 This is home screen
 
 
+<br>
+<br>
 ![pi3](https://user-images.githubusercontent.com/25553339/62533327-00bae700-b864-11e9-84f2-77ecb807e956.JPG)
+<br>
 this is update and deleting screen
 
 
