@@ -10,23 +10,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.stwalkerster.android.apps.todoapp.adapter.TodoAdapter;
+import com.stwalkerster.android.apps.todoapp.model.NotesPojo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.view.View;
 import android.widget.Toast;
-import android.widget.Button;
 import android.widget.ProgressBar;
 //import com.github.ybq.android.spinkit.SpinKitView;
 import java.util.ArrayList;
 import java.util.List;
-import android.content.DialogInterface;
 
 public class home extends AppCompatActivity {
     FirebaseDatabase database;
@@ -64,6 +62,7 @@ public class home extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 notesLists.removeAll(notesLists);
                 //All data change in database notify here
+
                     for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                     {
                         //Add data to pojo class
@@ -102,19 +101,6 @@ public class home extends AppCompatActivity {
 
     }
 
-/*
-    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                    notesLists.remove(viewHolder.getAdapterPosition());
-                    adapters.notifyDataSetChanged();
-        }
-    };*/
 
 
 }

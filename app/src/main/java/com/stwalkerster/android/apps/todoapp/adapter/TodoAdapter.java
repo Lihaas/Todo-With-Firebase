@@ -1,4 +1,4 @@
-package com.stwalkerster.android.apps.todoapp;
+package com.stwalkerster.android.apps.todoapp.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +14,9 @@ import android.widget.Button;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.stwalkerster.android.apps.todoapp.DetailActivity;
+import com.stwalkerster.android.apps.todoapp.R;
+import com.stwalkerster.android.apps.todoapp.model.NotesPojo;
 
 import java.util.List;
 
@@ -70,14 +73,15 @@ public  TodoAdapter(List<NotesPojo> notesList ,Context context){
                     DatabaseReference mDatabase;
                     mDatabase = FirebaseDatabase.getInstance().getReference();
 
-                    mDatabase.child("Notes").child(id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
+                    try {
+                        mDatabase.child("Notes").child(id).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
 
 
-                        }
-                    });
-
+                            }
+                        });
+                    }catch (Exception e){}
 
 
 
@@ -88,7 +92,7 @@ public  TodoAdapter(List<NotesPojo> notesList ,Context context){
                 @Override
                 public void onClick(View view) {
                     NotesPojo pojoData = notesList.get(getAdapterPosition());
-                    Intent i = new Intent(context,DetailActivity.class);
+                    Intent i = new Intent(context, DetailActivity.class);
                     i.putExtra("id",pojoData.getmId());
                     i.putExtra("title",pojoData.getmTitle());
                     i.putExtra("discrip",pojoData.getmDescription());

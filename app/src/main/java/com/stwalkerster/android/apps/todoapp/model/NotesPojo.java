@@ -1,4 +1,4 @@
-package com.stwalkerster.android.apps.todoapp;
+package com.stwalkerster.android.apps.todoapp.model;
 
 public class NotesPojo {
     String mTitle;

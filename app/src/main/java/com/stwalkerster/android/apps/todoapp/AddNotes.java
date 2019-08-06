@@ -14,9 +14,9 @@ import android.widget.ProgressBar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.stwalkerster.android.apps.todoapp.model.NotesPojo;
 
 public class AddNotes extends AppCompatActivity {
 Button addnotes;
@@ -50,7 +50,7 @@ private  void  Addnotes(){
         try {
             id = mDataBase.push().getKey();
         }catch (Exception e){}
-        NotesPojo noteData = new NotesPojo(id,disSend,titlesend);
+        NotesPojo noteData = new NotesPojo(id,titlesend,disSend);
         mDataBase.child("Notes").child(id).setValue(noteData)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
